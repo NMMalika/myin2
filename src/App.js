@@ -21,7 +21,10 @@ function App() {
     function handleReset() {
       setCount(0);
     }
+function handleDelete(id){
+  setTasks(tasks.filter(task=> id !== task.id))
 
+}
   return (
     <>
       <Header />
@@ -43,11 +46,11 @@ function App() {
           <h1>Task List</h1>
           <ul>
             {tasks.map((task, index) => (
-              <li key={index}>
+              <li key={task.id}>
                 <span>
                   {task.id} - {task.name}
                 </span>
-                <button className="delete"> Delete </button>
+                <button  onClick={()=> handleDelete(task.id)} className="delete"> Delete </button>
               </li>
             ))}
           </ul>
