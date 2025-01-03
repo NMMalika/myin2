@@ -11,6 +11,7 @@ function App() {
      { id: 2, name: "edit React Lectures", completed: true },
      { id: 3, name: "watch React Lectures", completed: false },
    ]);
+   const[show,setShow] = useState(true);
 
   function handleAdd() {
     setCount(count + 1);
@@ -44,15 +45,24 @@ function handleDelete(id){
         </div>
         <div>
           <h1>Task List</h1>
+          <button onClick={()=>setShow(!show)}>Toggle</button>
           <ul>
-            {tasks.map((task, index) => (
-              <li key={task.id}>
-                <span>
-                  {task.id} - {task.name}
-                </span>
-                <button  onClick={()=> handleDelete(task.id)} className="delete"> Delete </button>
-              </li>
-            ))}
+            {show &&
+              tasks.map((task, index) => (
+                <li key={task.id}>
+                  <span>
+                    {task.id} - {task.name}
+                  </span>
+                  <button
+                    onClick={() => handleDelete(task.id)}
+                    className="delete"
+                  >
+                    {" "}
+                    Delete{" "}
+                  </button>
+                </li>
+              ))}
+            
           </ul>
         </div>
       </div>
