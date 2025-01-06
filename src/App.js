@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      <Tasklist/>
+      <Tasklist title="Random"/>
      
       <Footer />
     </>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 
-export const Tasklist = () => {
+export const Tasklist = (props) => {
   const [count, setCount] = useState(0);
   const [tasks, setTasks] = useState([
     { id: 1, name: "Record React Lectures", completed: false },
@@ -25,7 +25,7 @@ export const Tasklist = () => {
 
   return (
     <div> <div className="App">
-            <h1>will i one day become a pro</h1>
+            <h1>will i one day become a pro{props.title}</h1>
             <div className="box">
               <p>{count}</p>
               <button onClick={handleAdd} className="add">
